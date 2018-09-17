@@ -26,6 +26,7 @@
         public string Name { get; set; }
 
         [StringLength(250, ErrorMessage = "Địa chỉ không được quá 50 ký tự")]
+        [Display(Name="Địa chỉ")]
         public string Address { get; set; }
 
         [Required(ErrorMessage = "Bạn chưa nhập danh mục")]
