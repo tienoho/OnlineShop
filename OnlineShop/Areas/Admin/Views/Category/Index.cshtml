@@ -1,0 +1,87 @@
+﻿@model List<Model.EF.Category>
+@{
+    ViewBag.Title = "Quản lý danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{ Quản lý danh mục}
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Tables</li>
+</ol>
+
+<!-- DataTables Example -->
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Data Table Example
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Danh mục</th>
+                        <th>MetaTitle</th>
+                        <th>ParentID</th>
+                        <th>DisplayOrder</th>
+                        <th>SeoTitle</th>
+                        <th>Ngày tạo</th>
+                        <th>MetaKeywords</th>
+                        <th>Thứ tự</th>
+                        <th>Trạng thái</th>
+                        <th>ShowOnHome</th>
+                        <th>$</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Danh mục</th>
+                        <th>MetaTitle</th>
+                        <th>ParentID</th>
+                        <th>DisplayOrder</th>
+                        <th>SeoTitle</th>
+                        <th>Ngày tạo</th>
+                        <th>MetaKeywords</th>
+                        <th>Thứ tự</th>
+                        <th>Trạng thái</th>
+                        <th>ShowOnHome</th>
+                        <th>$</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.Name</td>
+                            <td>@item.MetaTitle</td>
+                            <td>@item.ParentID</td>
+                            <td>@item.DisplayOrder.GetValueOrDefault(0)</td>
+                            <td>@item.SeoTitle</td>
+                            <td>@(item.CreatedDate.HasValue ? item.CreatedDate.Value.ToString("dd/MM/yyyy") : "")</td>
+                            <td>@item.MetaKeywords</td>
+                            <td>@(item.Status.GetValueOrDefault(false) ? "Active" : "Block")</td>
+                            <td>@(item.ShowOnHome.GetValueOrDefault(false) ? "Active" : "Block")</td>
+                            <td>
+                                <a href="/Admin/Category/Edit/@item.ID">Sửa</a>|
+                                <a href="/Admin/Category/Delete/@item.ID">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+<p class="small text-center text-muted my-5">
+    <em>More table examples coming soon...</em>
+</p>
+
+
+
