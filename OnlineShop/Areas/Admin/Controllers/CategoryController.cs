@@ -18,7 +18,9 @@ namespace OnlineShop.Areas.Admin.Controllers
         }
         public ActionResult Create()
         {
+            
             return View();
         }
+        
     }
 }

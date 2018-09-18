@@ -66,12 +66,13 @@
                                 <td>@item.Status</td>
                                 <td>
                                     <a href="/Admin/User/Edit/@item.ID">Sửa</a> |
-                                    @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
-                       {
-                           Confirm = "Bạn có muốn xóa bản ghi này",
-                           OnComplete = "$('#row_" + @item.ID + "').remove()",
-                           HttpMethod = "Delete"
-                       })
+                                    @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID },
+                                   new AjaxOptions
+                                   {
+                                       Confirm = "Bạn có muốn xóa bản ghi này",
+                                       OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                       HttpMethod = "Delete"
+                                   })
                                 </td>
                             </tr>
                         }

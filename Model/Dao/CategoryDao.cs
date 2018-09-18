@@ -18,5 +18,9 @@ namespace Model.Dao
         {
             return db.Categories.ToList();
         }
+        public List<Category> ListCategoryActive()
+        {
+            return db.Categories.Where(x => x.Status == true).ToList();
+        }
     }
 }

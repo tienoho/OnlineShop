@@ -1,7 +1,8 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -12,20 +13,26 @@ namespace Model.EF
         public long ID { get; set; }
 
         [StringLength(250)]
+        [DisplayName("Tiêu đề")]
         public string Name { get; set; }
 
         [StringLength(250)]
+        
         public string MetaTitle { get; set; }
 
         [StringLength(500)]
+        [DisplayName("Nội dung")]
         public string Description { get; set; }
 
         [StringLength(250)]
+        [DisplayName("Hình ảnh")]
         public string Image { get; set; }
 
+        [DisplayName("Chuyên mục")]
         public long? CategoryID { get; set; }
 
         [Column(TypeName = "ntext")]
+        [DisplayName("Chi tiết")]
         public string detail { get; set; }
 
         public int? Warranty { get; set; }
@@ -45,8 +52,8 @@ namespace Model.EF
 
         [StringLength(250)]
         public string MetaDescription { get; set; }
-
-        public bool? Status { get; set; }
+        [DisplayName("Trạng thái")]
+        public bool Status { get; set; }
 
         public DateTime? TopHot { get; set; }
 
