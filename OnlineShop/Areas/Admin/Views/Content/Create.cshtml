@@ -7,7 +7,7 @@
 @section header{Tạo mới content}
 @section jsFooter{
     <script>
-        $('#btnSelectImage').on('Click', function (e) {
+        $('#btnSelectImage').on('click', function (e) {
             e.preventDefault();
             var finder = new CKFinder();
             finder.selectActionFunction = function (url) {
@@ -15,8 +15,8 @@
             };
             finder.popup();
         })
-</script>
-    }
+    </script>
+}
 
 <h2>Create</h2>
 @using (Html.BeginForm())
