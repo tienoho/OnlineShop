@@ -52,7 +52,7 @@ namespace OnlineShop.Areas.Admin.Controllers
                 var dao = new ContentDao();
                 var result = dao.Update(content);
                 if (result) return RedirectToAction("Index", "Content");
-                else  ModelState.AddModelError("", "Cập nhật khong thành công");
+                else  ModelState.AddModelError("", "Cập nhật không thành công");
             }
             SetViewBag(content.CategoryID);
             return View();
